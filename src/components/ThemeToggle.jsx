@@ -9,12 +9,12 @@ function ThemeToggle() {
   return (
     <div>
       {theme === "dark" ? (
-        <div>
+        <div onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
           <HiSun />
           Light Mode
         </div>
       ) : (
-        <div>
+        <div onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
           <HiMoon />
           Dark Mode
         </div>
