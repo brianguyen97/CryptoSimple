@@ -1,7 +1,6 @@
 import React from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import { Sparklines, SparklinesLine } from "react-sparklines";
-import { v4 as uuidv4 } from "uuid";
 
 function CoinItem({ coin }) {
   return (
