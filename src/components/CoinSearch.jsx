@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import CoinItem from "./CoinItem";
 import { v4 as uuidv4 } from "uuid";
 
 function CoinSearch({ coins }) {
-  console.log(coins);
+  const [searchText, setSearchText] = useState("");
+
   return (
     <div>
       <div>
         <h1>Search Crypto</h1>
         <form>
-          <input type="text" placeholder="Search for a coin..." />
+          <input
+            onChange={(e) => setSearchText(e.target.value)}
+            type="text"
+            placeholder="Search for a coin..."
+          />
         </form>
       </div>
 
@@ -28,9 +33,19 @@ function CoinSearch({ coins }) {
           </tr>
         </thead>
         <tbody>
-          {coins.map((coin) => {
-            return <CoinItem key={uuidv4()} coin={coin} />;
-          })}
+          {coins
+            .filter((value) => {
+              if (searchText === "") {
+                return value;
+              } else if (
+                value.name.toLowerCase().includes(searchText.toLowerCase())
+              ) {
+                return value;
+              }
+            })
+            .map((coin) => {
+              return <CoinItem key={uuidv4()} coin={coin} />;
+            })}
         </tbody>
       </table>
     </div>
