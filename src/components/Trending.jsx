@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 function Trending() {
   const [trending, setTrending] = useState([]);
@@ -17,7 +18,10 @@ function Trending() {
       <h1 className="text-2xl font-bold py-4">Trending Coins</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {trending.map((coin) => (
-          <div className="rounded-div flex justify-between p-4 hover:scale-105 ease-in-out duration-300">
+          <div
+            key={uuidv4()}
+            className="rounded-div flex justify-between p-4 hover:scale-105 ease-in-out duration-300"
+          >
             <div className="flex w-full items-center justify-between">
               <div className="flex">
                 <img
