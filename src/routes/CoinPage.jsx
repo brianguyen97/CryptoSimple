@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import { FaTwitter, FaFacebook, FaReddit, FaGithub } from "react-icons/fa";
+import DOMPurify from "dompurify";
 
 function CoinPage() {
   const [coin, setCoin] = useState({});
@@ -148,7 +149,13 @@ function CoinPage() {
       {/* Description */}
       <div>
         <p>About {coin.name}</p>
-        <p>{coin.description.en}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(
+              coin.description ? coin.description.en : ""
+            ),
+          }}
+        ></p>
       </div>
     </div>
   );
