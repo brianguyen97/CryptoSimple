@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Sparklines, SparklinesLine } from "react-sparklines";
+import { FaTwitter, FaFacebook, FaReddit, FaGithub } from "react-icons/fa";
 
 function CoinPage() {
   const [coin, setCoin] = useState({});
@@ -109,7 +110,6 @@ function CoinPage() {
                 ) : null}
               </div>
             </div>
-
             <div>
               <div>
                 <p>Price Change (30d)</p>
@@ -136,8 +136,19 @@ function CoinPage() {
                 ) : null}
               </div>
             </div>
+            <div>
+              <FaTwitter />
+              <FaFacebook />
+              <FaReddit />
+              <FaGithub />
+            </div>
           </div>
         </div>
+      </div>
+      {/* Description */}
+      <div>
+        <p>About {coin.name}</p>
+        <p>{coin.description.en}</p>
       </div>
     </div>
   );
