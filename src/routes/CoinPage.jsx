@@ -148,8 +148,8 @@ function CoinPage() {
       </div>
 
       {/* Description */}
-      <div>
-        <p>About {coin.name}</p>
+      <div className="py-4">
+        <p className="text-xl font-bold">About {coin.name}</p>
         <p
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(
